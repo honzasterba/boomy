@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+video:
+  id: 1
+  title: Super mega boom
+  link: http://www.nekdo.com/neco
+  popularity: 0
+  user_id: 1
+  kind: video
+  created_at: <%= Time.now %>
+text:
+  id: 2
+  title: Super truper boom
+  link: http://www.nekde.com/tamto/link?param=value
+  popularity: 0
+  user_id: 2
+  kind: text
+  created_at: <%= Time.now %>

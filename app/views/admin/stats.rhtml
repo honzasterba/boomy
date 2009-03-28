@@ -1,0 +1,16 @@
+<h2>Users</h2>
+<ul style="margin: 20px">
+<% for user in @users %>
+	<li><%= user.nick %></li>
+<% end %>
+</ul>
+
+<h2>Booms</h2>
+<p style="margin: 20px">Count <%= @booms %></p>
+
+<h2>Tags</h2>
+<ul style="margin: 20px">
+<% for tag in @tags %>
+	<li><%= tag.name %> - <%= tag.popularity %></li>
+<% end %>
+</ul>

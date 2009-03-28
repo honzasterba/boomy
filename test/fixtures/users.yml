@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+Nick:
+  id: 1
+  nick: Nick
+  email: email@test.com
+  password: heslo
+Jack:
+  id: 2
+  nick: Jack
+  email: jack@somewhere.com
+  password: heslo

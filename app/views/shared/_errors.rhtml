@@ -1,0 +1,13 @@
+<% if !object.nil? && !object.errors.empty? %>
+<div class="errors">
+
+<p><strong>V zadání se vyskytlo <%= object.errors.size %> chyb:</strong></p>
+
+<ul>
+<% object.errors.each { |attr, msg| %>
+    <li><%= msg %></li><!-- <%= attr %> -->
+<% } %>
+</ul>
+    
+</div>
+<% end %>

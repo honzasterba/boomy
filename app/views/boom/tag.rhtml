@@ -1,0 +1,10 @@
+<p id="filter">
+	<strong class="big"><%= @title %>: </strong>
+	<%= link_to "Nejlepší za poslední týden", boomy_url, :class => "small" %>
+	<span class="delimiter">&nbsp;</span>
+	<%= link_to "Nejnovější", novinky_url, :class => "small" %>
+	<span class="delimiter">&nbsp;</span>
+	<%= link_to "Nejlepší", nejlepsi_url, :class => "small" %>
+</p>
+
+<%= render :partial => "/shared/list", :locals => { :booms => @booms, :pages => @booms_pages } %>

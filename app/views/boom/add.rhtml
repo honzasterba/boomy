@@ -1,0 +1,34 @@
+<div id="content">
+
+<h1>Přidej, sdílej, hodnoť</h1>
+
+<% form_tag(pridat_url, :id => "ad-form") do %><div>
+<%= errors_for @boom %>
+<div class="form-field">
+	<div class="label"><label for="boom_title">Název:</label></div>
+	<%= text_field "boom", "title", :size => 40, :class => "text large" %>
+<p class="note">* Zadej výstižný popisek. 
+	Např.: "Skvělé video", "Šílené pády" nebo "Paroubkův úšklebek".</p>	
+</div>
+<div class="form-field">
+	<div class="label"><label for="boom_link">Adresa (URL):</label></div>
+	<%= text_field "boom", "link", :size => 40, :class => "text large" %>
+</div>
+<div class="form-field">
+	<div class="label"><label for="tags">Tagy:</label></div>
+	<%= text_field_tag "tags", @tags, :size => 40, :class => "text large" %>
+</div>
+<p class="note">* Svůj příspěvěk můžeš označkovat několika tagy, aby ostatní věděli co čekat. <br />
+	Značky odděluj mezerami. Např.: video politici pády příroda</p>	
+<div class="form-field">
+	<input type="image" src="/images/add-button.png" alt="Odeslat" />
+</div>
+</div><% end %>
+
+<h1>Jde to rychlejc!</h1>
+<ol>
+	<li>Přetáhni si odkaz "<%= link_to "Přidat na Boomy.cz", "javascript:location.href='http://#{request.host_with_port}/boom/add?title='+encodeURIComponent(document.title)+'&amp;link='+encodeURIComponent(location.href);void(0);" %>" do oblíbených.</li>
+	<li>Když najdeš na webu něco srandovního, stačí kliknout a můžeš sdílet.</li>
+</ol>
+
+</div>

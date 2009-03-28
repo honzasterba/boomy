@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+cool:
+  id: 1
+  name: cool
+  slug: sad
+  popularity: 0
+sad:
+  id: 2
+  name: sad
+  slug: sad
+  popularity: 0

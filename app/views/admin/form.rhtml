@@ -1,0 +1,18 @@
+<% form_tag :action => "form", :id => @boom do %>
+<%= errors_for @boom %>
+<table class="form">
+	<tr>
+		<td>Název:</td>
+		<td><%= text_field "boom", "title", :size => 70 %></td>
+	</tr>
+	<tr>
+		<td>Adresa (URL):</td>
+		<td><%= text_field "boom", "link", :size => 70 %></td>
+	</tr>
+	<tr>
+		<td>Tagy:</td>
+		<td><%= text_field_tag "tags", @tags, :size => 70 %></td>
+	</tr>
+</table>
+<p><%= submit_tag "Odeslat" %></p>
+<% end %>

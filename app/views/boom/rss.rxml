@@ -1,0 +1,25 @@
+xml.instruct!
+
+xml.rss "version" => "2.0", "xmlns:dc" => "http://purl.org/dc/elements/1.1/" do
+  xml.channel do
+
+    xml.title       "Boomy.cz - novinky"
+    xml.link        url_for(:only_path => false, :controller => 'boom')
+    xml.description "sdílej a hlasuj pro věcičky na webu!"
+
+    @booms.each do |boom|
+      xml.item do
+        xml.title       boom.title
+        xml.link        boom.link
+        xml.guid        boom.link
+        xml.description %Q{Přidal #{boom.user.nick} #{boom.created_at.to_formatted_s(:cz_datetime)}. } + 
+          link_to("Podrobnosti.", :action => "detail", :id => boom, :only_path => false) + " " +
+          link_to("Dej bod!", :action => "rate", :id => boom, :only_path => false) +
+          %Q{ Tagy: #{boom.tags.collect {|tag| link_to tag.name, tag_url(:id => tag, :slug => tag.slug, :only_path => false)}.join(", ")} }
+        xml.pubDate     CGI.rfc1123_date(boom.created_at)
+        xml.author      h(boom.user.nick)
+      end
+    end
+
+  end
+end

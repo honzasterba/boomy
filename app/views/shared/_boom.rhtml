@@ -1,0 +1,24 @@
+<div class="item<%= " rated" if boom.has_user(act_user) %>" > <%# visited rated %>
+	<%= render :partial => "shared/boom_tools", :locals => {:boom => boom} %>
+	<div class="item-data">
+		<h2><%= link_to h(boom.short_title), h(boom.link), :target => "_blank", :class => "snap_shots" %></h2>
+		<p>
+			<%= link_to h(boom.user.nick), user_url(:id => boom.user, :slug => boom.user.slug) %> <%= pretty_date boom.created_at %>.
+			<%= link_to "Podrobnosti &hellip;", detail_url(:id => boom, :slug => boom.slug) %>
+
+			<% if act_user and act_user.admin? %>
+			<%= link_to "Upravit", {:controller => "admin", :action => "form", :id => boom} %>
+			|
+			<%= link_to "Smazat", {:controller => "admin", :action => "destroy", :id => boom}, :confirm => "Fakt SMAZAT?" %>
+			<% end %>
+		</p>
+		<% if !boom.tags.empty? %>
+		<p>
+			Tagy: <% boom.tags.each do |tag| %>
+				<%= link_to tag.name, tag_url(:id => tag, :slug => tag.slug) %><% if tag != boom.tags.last %>,<% end %>
+			<% end %>
+		</p>
+		<% end %>
+	</div>
+</div>
+<div class="reset">&nbsp;</div>

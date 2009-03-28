@@ -1,0 +1,16 @@
+RewriteEngine On
+
+# FCGI CONFIG
+# AddHandler fcgid-script .fcgi
+# RewriteRule ^$ index.html [QSA]
+# RewriteRule ^([^.]+)$ $1.html [QSA]
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteRule ^(.*)$ dispatch.fcgi [QSA,L]
+
+# SWITCHPIPE CONFIG
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ http://127.0.0.1:10000/boomy/$1 [P]
+
+ErrorDocument 500 /500.html
+ErrorDocument 404 /404.html
+

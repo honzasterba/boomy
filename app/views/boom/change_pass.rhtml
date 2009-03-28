@@ -1,0 +1,29 @@
+<div id="content" class="login">
+
+	<div class="login-title">
+		<h2 class="floatLeft big blue arrow-s">Změna hesla</h2>
+	</div>
+
+        <p class="note">Zde můžeš změnit heslo pro svůj uživatelský účet.</p>
+
+        <div class="reset">&nbsp;</div>
+
+	<div>
+		<% form_tag(change_pass_url, :id => "changepass-form") do %>
+		<div>
+			<div class="form-field">
+				<div class="label"><label for="password">Tvoje nové heslo:</label></div>
+				<input type="password" class="text large" name="password" id="password" value="" />
+			</div>
+			<div class="form-field">
+				<div class="label"><label for="password_confirmation">Potvrzení hesla:</label></div>
+				<input type="password" class="text large" name="password_confirmation" id="password_confirmation" value="" />
+			</div>
+			<div class="form-field">
+				<%= submit_tag "Odeslat" %>
+			</div>
+		</div>
+		<% end %>
+	</div>
+
+</div>

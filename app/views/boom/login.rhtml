@@ -1,0 +1,88 @@
+<div id="content" class="login">
+	<div class="login-title">
+		<h2 class="floatLeft big blue arrow-s">Přihlášení</h2>
+		<h2 class="floatLeft big blue arrow-se">Registrace</h2>
+	</div>
+	<div class="reset">&nbsp;</div>
+	<p class="note">Aby jsi mohl s ostatními <strong><%= link_to "sdílet", :action => "add" %></strong> a 
+	<strong>hodnotit</strong> odkazy je nutné se zaregistrovat nebo se přihlásit. Příslušné formuláře 
+	najdeš níže.</p>
+	
+	<div id="leftCol">
+		<% form_tag(login_url, :id => "login-form") do %>
+		<div>
+			<div class="form-field">
+				<div class="label"><label for="login">Email:</label></div>
+				<input type="text" class="text large" name="email" id="email" value="" />
+			</div>
+			<div class="form-field">
+				<div class="label"><label for="pass">Heslo:</label></div>
+				<input type="password" class="text" name="pass" id="pass" value="" />
+				<span class="delimiter">&nbsp;</span>
+				<!-- <a href="#" class="blue">Zapoměl jsem heslo!</a> -->
+			</div>
+			<div class="form-field">
+				<div class="label">Zapamatuj si mě: <%= check_box_tag "remember" %></div>
+			</div>			
+			<div class="form-field">
+				<input type="image" src="/images/login-button.png" alt="Přihlásit" />
+			</div>
+		</div>
+		<% end %>
+	</div>
+	
+	<div id="rightCol">
+		<% form_tag(login_url, :id => "register-form") do %><div>
+			<%= errors_for @user %>
+			<div class="form-field">
+				<div class="label"><label for="reg-login">Uživatelské jméno:</label></div>
+				<%= text_field "user", "nick", :class => "text large", :size => 20 %>
+			</div>
+			<div class="form-field">
+				<div class="label"><label for="reg-email">E-mail:</label></div>
+				<%= text_field "user", "email", :class => "text large", :size => 20 %>
+			</div>
+			<div class="form-field">
+				<div class="label"><label for="reg-pass">Heslo:</label></div>
+				<%= password_field "user", "password", :class => "text" %>
+			</div>
+			<div class="form-field">
+				<div class="label"><label for="reg-pass-confirm">Potvrdit heslo:</label></div>
+				<%= password_field "user", "password_confirmation", :class => "text" %>
+			</div>
+			<div class="form-field">
+				<div class="label"><label><%= @captcha[:q] %></label></div>
+				<% for item in @captcha[:a] %>
+					<%= radio_button_tag "captcha", item %> <label for="captcha_<%= item %>"><%= item %></label> 
+					<span class="delimietr">&nbsp;</span>
+		       <% end %>
+			</div>
+			<div class="form-field">
+				<input type="image" src="/images/register-button.png" alt="Registrovat" />
+			</div>
+		</div><% end %>
+	</div>
+        
+        <div class="reset">&nbsp;</div>
+
+	<div class="login-title">
+		<h2 class="floatLeft big blue arrow-s">Zapoměl si heslo?</h2>
+	</div>
+
+        <p class="note">Zadej svůj <strong>email</strong> a ja ti vygeneruju nové a pošlu na email.</p>
+
+	<div>
+		<% form_tag(forgot_pass_url, :id => "newpass-form") do %>
+		<div>
+			<div class="form-field">
+				<div class="label"><label for="email">Email:</label></div>
+				<input type="text" class="text large" name="email" id="email" value="" />
+			</div>
+			<div class="form-field">
+				<%= submit_tag "Odeslat" %>
+			</div>
+		</div>
+		<% end %>
+	</div>
+
+</div>

@@ -1,0 +1,32 @@
+	<% if act_user.nil? %>
+		<% link_to_block( {:action => "rate", :id => boom.id }, 
+					{ :class => "points" }) do %>
+			<span class="number" id="points_<%= boom.id %>"><%= boom.popularity %></span>
+			<span class="desc">
+				dej bod
+			</span>
+		<% end %>		
+	<% elsif boom.has_user(act_user) %>
+		<div class="points">
+			<span class="number"><%= boom.popularity %></span>
+			<span class="desc">bodů</span>
+		</div>
+	<% else %>
+		<div id="boom_tools_<%= boom.id %>">
+		<% block_to_remote({ 
+					:update => "boom_tools_#{boom.id}",
+					:url => { :action => "a_rate", :id => boom.id },
+				    :loading => "Element.hide('points_#{boom.id}'); Element.show('indicator_#{boom.id}');",
+				    :complete => "Element.show('points_#{boom.id}'); Element.hide('indicator_#{boom.id}');" 
+					},
+					{ :class => "points" }) do %>
+			<span class="number" id="points_<%= boom.id %>"><%= boom.popularity %></span>
+			<span class="number" style="display: none;" id="indicator_<%= boom.id %>">
+				<%= image_tag "indicator.gif", :alt => "pracuji..." %>
+			</span>			
+			<span class="desc">
+				dej bod
+			</span>
+		<% end %>
+		</div>
+	<% end %>

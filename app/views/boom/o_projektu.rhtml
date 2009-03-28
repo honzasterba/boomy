@@ -1,0 +1,44 @@
+<div class="page">
+
+<h1>O projektu</h1>
+
+<p><strong><%= link_to "Boomy.cz", "/" %></strong> je nezávislý zábavní server českého internetu. Jeho
+účelem je umožnit uživatelům <%= link_to "sdílet", :action => "add" %> a 
+<%= link_to "hodnotit", :action => "best_of" %> zajímavé a zábavné věci na
+internetu.</p>
+
+<p>Autorem projektu je <%= link_to "Honza Štěrba", "http://www.jansterba.com" %>. Pokud
+máš nápad na zlepšení nebo bys se mnou chtěl spolupracovat ozvi se na 
+<%= mail_to "admin@boomy.cz", "email", :encode => "javascript"  %> nebo
+použij <%= link_to "fórum", "http://forum.jansterba.com/categories.php" %>.</p>
+
+<p>Na závěr děkuji <%= link_to "Martinu Cohenovi", "http://martincohen.info" %> za to, že si 
+našel chliku a nakreslil pro <strong><%= link_to "Boomy.cz", "/" %></strong> slušivý design a 
+<%= link_to "Centimu", "http://www.centi.sk" %>, že si našel chvliky dvě a nařezal
+to do layoutu.</p>
+
+<h1>Podpora</h1>
+
+<p>Pokud se ti Boomy.cz líbí a myslíš, že návštevníci tvých stránek by sem
+ rádi přidávali odkazy, vlož následující kód do svých stránek:</p>
+
+<pre>
+&lt;!-- boomy.cz --&gt;
+&lt;script type="text/javascript"&gt;
+title = encodeURIComponent(document.title);
+link = encodeURIComponent(document.URL);
+boomy = '&lt;a href="http://www.boomy.cz/boom/add?&amp;title=' + title + '&amp;link=' + link + '"&gt;' + 
+        '&lt;img src="http://www.boomy.cz/images/boomy.gif" border="0" ' + 
+        'title="Přidej na Boomy.cz" alt="Boomy.cz" /&gt;' + 
+        '&lt;/a&gt;';
+document.writeln(boomy);
+&lt;/script&gt;
+&lt;!-- / boomy.cz  --&gt;
+</pre>
+
+<p>Případně se můžeš výše uvedeným kódem inspirovat a generovat si odkazy sám způsobem, 
+který preferuješ. Hlavně nezapomeň nastavit parametry requestu <strong>title</strong>
+a <strong>link</strong>. Použij obrázek <%= image_tag "boomy.gif", :alt => "Boomy.cz", :title => "Přidej na Boomy.cz" %>,
+který najdeš na adrese <strong>http://www.boomy.cz/images/boomy.gif</strong></p>
+
+</div>
